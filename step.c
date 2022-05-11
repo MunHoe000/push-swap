@@ -31,7 +31,7 @@ void	ss(struct stack a, struct stack b)
 	return ;
 }
 
-void	pa(a, b)
+void	pa(struct stack a, struct stack b)
 {
 	int		*temp;
 	int		i;
@@ -40,7 +40,8 @@ void	pa(a, b)
 		return ;
 	temp = malloc(sizeof (int) * a.length);
 	i = a.length;
-	temp[1] = refill(temp, a.stack, i, i - 1, 0);
+	temp[1] = *refill(temp, a.stack, i, i - 1, 0);
+	printlist(temp, 5);
 	temp[0] = b.stack[0];
 	a.stack = refill(a.stack, temp, i, i, -1);
 	free (temp);
