@@ -34,19 +34,22 @@ void	ss(struct stack a, struct stack b)
 void	pa(struct stack a, struct stack b)
 {
 	int		*temp;
-	int		i;
 
 	if (a.length < 2 | b.length < 2)
 		return ;
-	temp = malloc(sizeof (int) * a.length);
-	i = a.length;
-	temp[1] = *refill(temp, a.stack, i, i - 1, 0);
-	printlist(temp, 5);
+	temp = malloc(sizeof(int) * (a.length + 1));
 	temp[0] = b.stack[0];
-	a.stack = refill(a.stack, temp, i, i, -1);
+	temp = lstcopy(temp, a.stack, 1, 0, a.length);
+	a.stack = lstcopy(a.stack, temp, 0, 0, a.length);
+	a.length = a.length + 1;
+	printf("\na\n");
+	printlist(a.stack, a.length);
+	printf("length is: %d\n", a.length);
 	free (temp);
-	i = b.length - 1;
-	b.stack = refill(b.stack, b.stack, i, i + 1, -1);
-	b.length--;
+	b.stack = b.stack + 1;
+	b.length = b.length - 1;
+	printf("\nb\n");
+	printlist(b.stack, b.length);
+	printf("length is: %d\n", b.length);
 	return ;
 }

@@ -16,7 +16,7 @@ typedef struct stack
 
 void	sa(struct stack a);
 
-int		*refill(int *c, int *d, int start, int end, int limit);
+int		*lstcopy(int *c, int *d, int start, int cstart, int limit);
 
 void	sb(struct stack b);
 

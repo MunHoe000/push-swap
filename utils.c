@@ -1,11 +1,12 @@
 #include"pushswap.h"
 
-int		*refill(int *c, int *d, int start, int end, int limit)
+int		*lstcopy(int *c, int *d, int start, int cstart, int limit)
 {
-	while (start > limit)
+	while (start < limit + 1)
 	{
-		c[start] = d[end];
-		start--;
+		c[start] = d[cstart];
+		start++;
+		cstart++;
 	}
-	return (c);
+;	return (c);
 }
