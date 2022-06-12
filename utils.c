@@ -1,12 +1,11 @@
 #include"pushswap.h"
 
-int		*lstcopy(int *c, int *d, int start, int cstart, int limit)
+void	printlist(t_stack *stack)
 {
-	while (start < limit + 1)
+	while(stack)
 	{
-		c[start] = d[cstart];
-		start++;
-		cstart++;
+		printf("%i\n", stack->num);
+		stack = stack->next;
 	}
-;	return (c);
+	return ;
 }

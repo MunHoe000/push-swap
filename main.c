@@ -1,39 +1,30 @@
 #include"pushswap.h"
 
-void	printstruct(struct stack list1, struct stack list2, int count)
+int		main(int argc, char **argv)
 {
-	count = list2.length;
-	while(count > 0)
-	{
-		printf("%d      %d\n", *list1.stack, *list2.stack);
-		list2.stack++;
-		list1.stack++;
-		count--;
-	}
-}
+	t_stack		*stack_a;
+	t_stack		*stack_b;
+	int		i;
 
+	i = 1;
+	if (argc <= 2)
+		return (1);
+	stack_a = copy_argv_to_stack(argc, argv);
+	stack_b = copy_argv_to_stack(argc, argv);
+	//stack_b = (t_stack*)malloc(sizeof(stack_a));
+	printf("before a\n");
+	printlist(stack_a);
+	printf("before b\n");
+	printlist(stack_b);
+	ss(stack_a, stack_b);
+	printf("after a\n");
+	printlist(stack_a);
+	printf("after b\n");
+	printlist(stack_b);
 
-void	printlist(int *list, int count)
-{
-	while(count > 0)
-	{
-		printf("%d\n", *list);
-		list++;
-		count--;
-	}
-}
-
-int		main()
-{
-	struct stack	list1;
-	struct stack	list2;
-
-	int trial1[2] = {1,2};
-	int trial2[2] = {9,8};
-	list1.stack = trial1;
-	list1.length = 2;
-	list2.stack = trial2;
-	list2.length = 2;
-	pa(list1, list2);
+	//if (argc <= 6)
+	//	short_sort(stack_a, stack_b);
+	//else
+	//	long_sort(stack_a, stack_b);
 	return (0);
 }

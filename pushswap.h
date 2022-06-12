@@ -8,24 +8,40 @@
 #include"unistd.h"
 
 
-typedef struct stack
+typedef struct		stack
 {
-	int		*stack;
-	int		length;
-} a, b;
+	int				num;
+	struct stack	*next;
+}					t_stack;
 
-void	sa(struct stack a);
+typedef struct		step
+{
+	char			*string;
+	struct step		*next;
+}					step_stack;
 
-int		*lstcopy(int *c, int *d, int start, int cstart, int limit);
+void	printlist(t_stack *stack);
 
-void	sb(struct stack b);
+int	ft_atoi(char *str);
 
-void	ss(struct stack a, struct stack b);
+t_stack	*create_new_node();
 
-void	pa(struct stack a, struct stack b);
+t_stack		*copy_argv_to_stack(int argc, char **argv);
 
-void	printstruct(struct stack list1, struct stack list2, int count);
+t_stack		*rotate(t_stack *stack);
 
-void	printlist(int *list, int count);
+t_stack		*sa(t_stack	*stack_a);
+
+t_stack		*sb(t_stack	*stack_b);
+
+void	ss(t_stack	*stack_a, t_stack *stack_b);
+
+t_stack		*ra(t_stack *stack_a);
+
+t_stack		*rb(t_stack *stack_b);
+
+t_stack		*rra(t_stack *stack_a);
+
+void	rr(t_stack *stack_a, t_stack *stack_b);
 
 #endif

@@ -1,55 +1,96 @@
 #include"pushswap.h"
 
-void	sa(struct stack a)
+t_stack		*rotate(t_stack *stack)
 {
-    int		temp;
+	int	temp;
 
-	if (a.length < 2)
-		return ;
-    temp = a.stack[0];
-    a.stack[0] = a.stack[1];
-    a.stack[1] = temp;
-	return ;
+	temp = stack->num;
+	stack->num = stack->next->num;
+	stack->next->num = temp;
+	return (stack);
 }
 
-void	sb(struct stack b)
+t_stack		*sa(t_stack	*stack_a)
 {
-    int		temp;
-
-	if (b.length < 2)
-		return ;
-    temp = b.stack[0];
-    b.stack[0] = b.stack[1];
-    b.stack[1] = temp;
-	return ;
+	stack_a = rotate(stack_a);
+	write(1, "sa\n", 3);
+	return (stack_a);
 }
 
-void	ss(struct stack a, struct stack b)
+t_stack		*sb(t_stack	*stack_b)
 {
-    sa(a);
-	sb(b);
-	return ;
+	stack_b = rotate(stack_b);
+	write(1, "sb\n", 3);
+	return (stack_b);
 }
 
-void	pa(struct stack a, struct stack b)
+void	ss(t_stack	*stack_a, t_stack *stack_b)
 {
-	int		*temp;
-
-	if (a.length < 2 | b.length < 2)
-		return ;
-	temp = malloc(sizeof(int) * (a.length + 1));
-	temp[0] = b.stack[0];
-	temp = lstcopy(temp, a.stack, 1, 0, a.length);
-	a.stack = lstcopy(a.stack, temp, 0, 0, a.length);
-	a.length = a.length + 1;
-	printf("\na\n");
-	printlist(a.stack, a.length);
-	printf("length is: %d\n", a.length);
-	free (temp);
-	b.stack = b.stack + 1;
-	b.length = b.length - 1;
-	printf("\nb\n");
-	printlist(b.stack, b.length);
-	printf("length is: %d\n", b.length);
-	return ;
+	stack_a = rotate(stack_a);
+	stack_b = rotate(stack_b);
+	write(1, "ss\n", 3);
 }
+
+// t_stack		*ra(t_stack *stack_a)
+// {
+// 	int 	temp;
+// 	t_stack	*head;
+
+// 	head = stack_a;
+// 	temp = stack_a->num;
+// 	while (stack_a->next)
+// 	{
+// 		stack_a->num = stack_a->next->num;
+// 		stack_a = stack_a->next;
+// 	}
+// 	stack_a->num = temp;
+// 	stack_a = head;
+// 	//add_result("ra\n\0");
+// 	return (stack_a);
+// }
+
+// t_stack		*rb(t_stack *stack_b)
+// {
+// 	int 	temp;
+// 	t_stack	*head;
+
+// 	head = stack_b;
+// 	temp = stack_b->num;
+// 	while (stack_b->next)
+// 	{
+// 		stack_b->num = stack_b->next->num;
+// 		stack_b = stack_b->next;
+// 	}
+// 	stack_b->num = temp;
+// 	stack_b = head;
+// 	//add_result("rb\n\0");
+// 	return (stack_b);
+// }
+
+// void	rr(t_stack *stack_a, t_stack *stack_b)
+// {
+// 	int 	temp_a;
+// 	t_stack	*head_a;
+// 	int 	temp_b;
+// 	t_stack	*head_b;
+
+// 	head_a = stack_a;
+// 	temp_a = stack_a->num;
+// 	head_b = stack_b;
+// 	temp_b = stack_b->num;
+// 	while (stack_a->next)
+// 	{
+// 		stack_a->num = stack_a->next->num;
+// 		stack_a = stack_a->next;
+// 	}
+// 	stack_a->num = temp_a;
+// 	stack_a = head_a;
+// 	while (stack_b->next)
+// 	{
+// 		stack_b->num = stack_b->next->num;
+// 		stack_b = stack_b->next;
+// 	}
+// 	stack_b->num = temp_b;
+// 	stack_b = head_b;
+// 	//add_result("rr\n\0");
+// }
