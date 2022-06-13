@@ -38,42 +38,24 @@ void	rrr(t_stack **stack_a, t_stack **stack_b)
 	write(1, "rrr\n", 4);
 }
 
-// void	pa(t_stack *stack_a, t_stack *stack_b)
-// {
-// 	t_stack		*head_a;
+void	pa(t_stack **stack_a, t_stack **stack_b)
+{
+	t_stack		*head;
+	
+	head = create_new_node();
+	head->num = (*stack_b)->num;
+	*stack_a = ft_lstaddfront(*stack_a, head);
+	*stack_b = (*stack_b)->next;
+	write(1, "pa\n", 3);
+}
 
-// 	head_a = stack_a;
-// 	while(stack_a->next->next)
-// 	{
-// 		stack_a->next->num = stack_a->num;
-// 		stack_a = stack_a->next;
-// 	}
-// 	head_a->num = stack_b->num;
-// 	while(stack_b->next->next)
-// 	{
-// 		stack_b->num = stack_b->next->num;
-// 		stack_b = stack_b->next;
-// 	}
-// 	stack_b->next = NULL;
-// 	write(1, "pa\n", 3);
-// }
-
-// void	pb(t_stack *stack_a, t_stack *stack_b)
-// {
-// 	t_stack		*head_b;
-
-// 	head_b = stack_b;
-// 	while(stack_b->next->next)
-// 	{
-// 		stack_b->next->num = stack_b->num;
-// 		stack_b = stack_b->next;
-// 	}
-// 	head_b->num = stack_a->num;
-// 	while(stack_a->next->next)
-// 	{
-// 		stack_a->num = stack_a->next->num;
-// 		stack_a = stack_a->next;
-// 	}
-// 	stack_a->next = NULL;
-// 	add_result("pb\n\0");
-// }
+void	pb(t_stack **stack_b, t_stack **stack_a)
+{
+	t_stack		*head;
+	
+	head = create_new_node();
+	head->num = (*stack_a)->num;
+	*stack_b = ft_lstaddfront(*stack_b, head);
+	*stack_a = (*stack_a)->next;
+	write(1, "pb\n", 3);
+}

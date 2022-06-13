@@ -12,11 +12,11 @@ int		main(int argc, char **argv)
 	stack_a = copy_argv_to_stack(argc, argv);
 	stack_b = copy_argv_to_stack(argc, argv);
 	//stack_b = (t_stack*)malloc(sizeof(stack_a));
-	// printf("before a\n");
-	// printlist(stack_a);
-	// printf("before b\n");
-	// printlist(stack_b);
-	pa(stack_a, stack_b);
+	printf("before a\n");
+	printlist(stack_a);
+	printf("before b\n");
+	printlist(stack_b);
+	pb(&stack_b, &stack_a);
 	printf("after a\n");
 	printlist(stack_a);
 	printf("after b\n");

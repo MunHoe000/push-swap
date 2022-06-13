@@ -54,6 +54,8 @@ void	rrr(t_stack **stack_a, t_stack **stack_b);
 
 t_stack		*ft_lstaddfront(t_stack *stack, t_stack *front);
 
-void	pa(t_stack *stack_a, t_stack *stack_b);
+void	pa(t_stack **stack_a, t_stack **stack_b);
+
+void	pb(t_stack **stack_b, t_stack **stack_a);
 
 #endif
