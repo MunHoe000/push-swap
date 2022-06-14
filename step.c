@@ -10,24 +10,24 @@ t_stack		*rotate(t_stack *stack)
 	return (stack);
 }
 
-t_stack		*sa(t_stack	*stack_a)
+t_stack		*sa(t_stack	**stack_a)
 {
-	stack_a = rotate(stack_a);
+	*stack_a = rotate(*stack_a);
 	write(1, "sa\n", 3);
-	return (stack_a);
+	return (*stack_a);
 }
 
-t_stack		*sb(t_stack	*stack_b)
+t_stack		*sb(t_stack	**stack_b)
 {
-	stack_b = rotate(stack_b);
+	*stack_b = rotate(*stack_b);
 	write(1, "sb\n", 3);
-	return (stack_b);
+	return (*stack_b);
 }
 
-void	ss(t_stack	*stack_a, t_stack *stack_b)
+void	ss(t_stack	**stack_a, t_stack **stack_b)
 {
-	stack_a = rotate(stack_a);
-	stack_b = rotate(stack_b);
+	*stack_a = rotate(*stack_a);
+	*stack_b = rotate(*stack_b);
 	write(1, "ss\n", 3);
 }
 

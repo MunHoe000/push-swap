@@ -26,15 +26,17 @@ int	ft_atoi(char *str);
 
 t_stack	*create_new_node();
 
+int		check_duplicate(t_stack **stack_a);
+
 t_stack		*copy_argv_to_stack(int argc, char **argv);
 
 t_stack		*rotate(t_stack *stack);
 
-t_stack		*sa(t_stack	*stack_a);
+t_stack		*sa(t_stack	**stack_a);
 
-t_stack		*sb(t_stack	*stack_b);
+t_stack		*sb(t_stack	**stack_b);
 
-void	ss(t_stack	*stack_a, t_stack *stack_b);
+void	ss(t_stack	**stack_a, t_stack **stack_b);
 
 t_stack		*top_bottom(t_stack *stack);
 
@@ -46,7 +48,7 @@ void	rr(t_stack *stack_a, t_stack *stack_b);
 
 t_stack		*bottom_top(t_stack *stack);
 
-t_stack		*rra(t_stack **stack_a);
+void	rra(t_stack **stack_a);
 
 t_stack		*rrb(t_stack **stack_b);
 
@@ -57,5 +59,7 @@ t_stack		*ft_lstaddfront(t_stack *stack, t_stack *front);
 void	pa(t_stack **stack_a, t_stack **stack_b);
 
 void	pb(t_stack **stack_b, t_stack **stack_a);
+
+void	short_sort(t_stack **stack_a, t_stack **stack_b);
 
 #endif

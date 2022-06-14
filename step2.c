@@ -16,11 +16,10 @@ t_stack		*bottom_top(t_stack *stack)
 	return (stack);
 }
 
-t_stack		*rra(t_stack **stack_a)
+void	rra(t_stack **stack_a)
 {
 	*stack_a = bottom_top(*stack_a);
 	write(1, "rra\n", 4);
-	return(*stack_a);
 }
 
 t_stack		*rrb(t_stack **stack_b)
@@ -34,7 +33,6 @@ void	rrr(t_stack **stack_a, t_stack **stack_b)
 {
 	*stack_a = bottom_top(*stack_a);
 	*stack_b = bottom_top(*stack_b);
-	printf("stack a is %d\n", (*stack_a)->num);
 	write(1, "rrr\n", 4);
 }
 
