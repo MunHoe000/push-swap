@@ -3,28 +3,29 @@
 int		check_duplicate(t_stack **stack_a)
 {
 	t_stack	*node;
-	t_stack	*start;
+	int		compare;
+	t_stack	*head;
 
-	start = create_new_node();
+	head = create_new_node();
+	head = *stack_a;
 	node = create_new_node();
-	printf("oookkk");
 	while(((*stack_a)->next) != NULL)
 	{
-		start = (*stack_a)->next;
-		node->num = (*stack_a)->num;
-		while((start->next) != NULL)
+		node = (*stack_a)->next;
+		compare = (*stack_a)->num;
+		while((node) != NULL)
 		{
-			if(node->num == start->num)
+			if(node->num == compare)
 			{
-				printf("Error\n");
+				printf("Numbers cannot be duplicated\n");
 				return (1);
 			}
-			start = start->next;
+			node = node->next;
 		}
 		(*stack_a) = (*stack_a)->next;
 	}
-	free(start);
 	free(node);
+	(*stack_a) = head;
 	return (0);
 }
 
@@ -38,10 +39,10 @@ int		main(int argc, char **argv)
 	if (argc <= 2)
 		return (1);
 	stack_a = copy_argv_to_stack(argc, argv);
-	printf("ok\n");
+	//printf("bef is %p, num is %d\n", &stack_a, stack_a->num);
 	if (check_duplicate(&stack_a))
 		return (1);
-	printf("ok\n");
+	//printf("aft is %p, num is %d\n", &stack_a, stack_a->num);
 	stack_b = create_new_node();
 	// printf("before a\n");
 	// printlist(stack_a);
@@ -52,7 +53,7 @@ int		main(int argc, char **argv)
 		short_sort(&stack_a, &stack_b);
 	
 	// printf("after a\n");
-	//printlist(stack_a);
+	printlist(stack_a);
 	// printf("after b\n");
 	// printlist(stack_b);
 	//else
