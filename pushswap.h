@@ -28,6 +28,8 @@ t_stack	*create_new_node();
 
 int		check_duplicate(t_stack **stack_a);
 
+int		is_sorted(t_stack **stack_a);
+
 t_stack		*copy_argv_to_stack(int argc, char **argv);
 
 t_stack		*rotate(t_stack *stack);
@@ -61,5 +63,7 @@ void	pa(t_stack **stack_a, t_stack **stack_b);
 void	pb(t_stack **stack_b, t_stack **stack_a);
 
 void	short_sort(t_stack **stack_a, t_stack **stack_b);
+
+void	mid_sort(t_stack **stack_a, t_stack **stack_b);
 
 #endif
